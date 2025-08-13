@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Electrical Safety Competency Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #212121;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #3f51b5;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3f51b5;
+            box-shadow: 0 0 0 2px rgba(63,81,181,0.1);
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .btn {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background: #303f9f;
+        }
+
+        .btn-secondary {
+            background: #757575;
+        }
+
+        .btn-secondary:hover {
+            background: #616161;
+        }
+
+        .btn-success {
+            background: #4caf50;
+        }
+
+        .btn-success:hover {
+            background: #388e3c;
+        }
+
+        /* QR Code Display Area - Optimized for printing */
+        .qr-display {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            background: white;
+        }
+
+        #qrcode {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border: 2px solid #000;
+            display: inline-block;
+        }
+
+        #qrcode img {
+            display: block;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        #qrcode canvas {
+            display: block;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .qr-info {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .qr-url {
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .session-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-left: 4px solid #3f51b5;
+            border-radius: 3px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Multiple QR Codes Grid */
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .qr-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            background: white;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .qr-item-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .qr-item-code {
+            margin: 10px auto;
+            display: inline-block;
+        }
+
+        /* Print Styles - Optimized for Chromium */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .form-section,
+            .btn,
+            .subtitle,
+            h1 {
+                display: none !important;
+            }
+
+            .qr-display {
+                border: none;
+                padding: 0;
+            }
+
+            .qr-container {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            #qrcode {
+                border: 2px solid #000 !important;
+                margin: 10mm auto !important;
+                padding: 10mm !important;
+                display: block !important;
+                width: fit-content !important;
+            }
+
+            #qrcode img,
+            #qrcode canvas {
+                width: 50mm !important;
+                height: 50mm !important;
+                image-rendering: pixelated !important;
+                image-rendering: -moz-crisp-edges !important;
+                image-rendering: crisp-edges !important;
+            }
+
+            .qr-info {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                border: 1px solid #000;
+                margin-top: 5mm;
+            }
+
+            .qr-url {
+                font-size: 10pt;
+                border: 1px solid #000;
+            }
+
+            .session-info {
+                border: 1px solid #000;
+                background: white !important;
+            }
+
+            .qr-grid {
+                display: block;
+            }
+
+            .qr-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 10mm;
+                border: 2px solid #000;
+                padding: 5mm;
+            }
+
+            .qr-item-code canvas,
+            .qr-item-code img {
+                width: 40mm !important;
+                height: 40mm !important;
+            }
+
+            /* Ensure QR codes are crisp */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+
+        /* Additional print optimization for Chromium */
+        @page {
+            margin: 10mm;
+            size: A4;
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            /* Chrome, Safari, Edge specific print styles */
+            @media print {
+                #qrcode {
+                    transform: scale(1);
+                    transform-origin: center;
+                }
+            }
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-info {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #1565c0;
+        }
+
+        .alert-success {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes for Electrical Safety Competency Test access</p>
+
+        <div class="form-section">
+            <h2>Configuration</h2>
+            
+            <div class="form-group">
+                <label for="baseUrl">Base URL:</label>
+                <input type="url" id="baseUrl" placeholder="https://your-domain.com/competency-test/" 
+                       value="http://localhost:8000/competency-test/">
+                <div class="help-text">Enter the base URL where the competency test is hosted</div>
+            </div>
+
+            <div class="form-group">
+                <label for="sessionType">Session Type:</label>
+                <select id="sessionType">
+                    <option value="individual">Individual Session</option>
+                    <option value="group">Group Session</option>
+                    <option value="training">Training Session</option>
+                    <option value="certification">Certification Session</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sessionId">Session ID (optional):</label>
+                <input type="text" id="sessionId" placeholder="Auto-generated if empty">
+                <div class="help-text">Leave empty to auto-generate a unique session ID</div>
+            </div>
+
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date (optional):</label>
+                <input type="date" id="expiryDate">
+                <div class="help-text">Set an expiration date for this QR code link</div>
+            </div>
+
+            <div class="form-group">
+                <label for="qrSize">QR Code Size:</label>
+                <select id="qrSize">
+                    <option value="128">Small (128px)</option>
+                    <option value="256" selected>Medium (256px)</option>
+                    <option value="384">Large (384px)</option>
+                    <option value="512">Extra Large (512px)</option>
+                </select>
+            </div>
+
+            <button class="btn" onclick="generateQR()">Generate QR Code</button>
+            <button class="btn btn-secondary" onclick="generateMultiple()">Generate Multiple</button>
+            <button class="btn btn-secondary" onclick="clearQR()">Clear</button>
+        </div>
+
+        <div id="qrDisplay" class="qr-display hidden">
+            <h2>Generated QR Code</h2>
+            
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+
+            <div class="qr-info">
+                <strong>Test Access URL:</strong>
+                <div class="qr-url" id="generatedUrl"></div>
+            </div>
+
+            <div class="session-info">
+                <h3>Session Information</h3>
+                <p><strong>Session ID:</strong> <span id="displaySessionId"></span></p>
+                <p><strong>Session Type:</strong> <span id="displaySessionType"></span></p>
+                <p><strong>Generated:</strong> <span id="displayGenerated"></span></p>
+                <p id="expiryInfo" class="hidden"><strong>Expires:</strong> <span id="displayExpiry"></span></p>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn btn-success" onclick="window.print()">Print QR Code</button>
+                <button class="btn" onclick="downloadQR()">Download as Image</button>
+                <button class="btn btn-secondary" onclick="copyUrl()">Copy URL</button>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 20px;">
+                <strong>Print Tips for Chromium Browsers:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Use "Print" button or Ctrl+P / Cmd+P</li>
+                    <li>Set "Margins" to "Default" or "Custom" with at least 10mm</li>
+                    <li>Enable "Background graphics" for best quality</li>
+                    <li>Choose "Color" mode for clearer QR codes</li>
+                    <li>Scale: 100% (do not fit to page)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="multipleQrDisplay" class="hidden">
+            <h2>Multiple QR Codes</h2>
+            <div id="qrGrid" class="qr-grid"></div>
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn btn-success" onclick="window.print()">Print All QR Codes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQRCode = null;
+
+        function generateSessionId() {
+            return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function generateQR() {
+            // Clear previous QR code
+            if (currentQRCode) {
+                document.getElementById('qrcode').innerHTML = '';
+                currentQRCode = null;
+            }
+
+            // Get form values
+            const baseUrl = document.getElementById('baseUrl').value;
+            const sessionType = document.getElementById('sessionType').value;
+            let sessionId = document.getElementById('sessionId').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const qrSize = parseInt(document.getElementById('qrSize').value);
+
+            if (!baseUrl) {
+                alert('Please enter a base URL');
+                return;
+            }
+
+            // Generate session ID if not provided
+            if (!sessionId) {
+                sessionId = generateSessionId();
+            }
+
+            // Build URL with parameters
+            let testUrl = baseUrl;
+            if (!testUrl.endsWith('/')) {
+                testUrl += '/';
+            }
+            testUrl += 'index.html?session=' + encodeURIComponent(sessionId);
+            testUrl += '&type=' + encodeURIComponent(sessionType);
+            
+            if (expiryDate) {
+                testUrl += '&expires=' + encodeURIComponent(expiryDate);
+            }
+
+            // Generate QR code with optimization for printing
+            currentQRCode = new QRCode(document.getElementById('qrcode'), {
+                text: testUrl,
+                width: qrSize,
+                height: qrSize,
+                colorDark: '#000000',
+                colorLight: '#FFFFFF',
+                correctLevel: QRCode.CorrectLevel.H, // High error correction for better printing
+                useSVG: false // Use canvas for better print compatibility
+            });
+
+            // Update display information
+            document.getElementById('generatedUrl').textContent = testUrl;
+            document.getElementById('displaySessionId').textContent = sessionId;
+            document.getElementById('displaySessionType').textContent = sessionType;
+            document.getElementById('displayGenerated').textContent = new Date().toLocaleString();
+
+            if (expiryDate) {
+                document.getElementById('displayExpiry').textContent = new Date(expiryDate).toLocaleDateString();
+                document.getElementById('expiryInfo').classList.remove('hidden');
+            } else {
+                document.getElementById('expiryInfo').classList.add('hidden');
+            }
+
+            // Show QR display
+            document.getElementById('qrDisplay').classList.remove('hidden');
+            document.getElementById('multipleQrDisplay').classList.add('hidden');
+
+            // Store session info in localStorage for tracking
+            const sessionInfo = {
+                sessionId: sessionId,
+                sessionType: sessionType,
+                created: new Date().toISOString(),
+                expires: expiryDate || null,
+                url: testUrl
+            };
+            
+            let sessions = JSON.parse(localStorage.getItem('qrSessions') || '[]');
+            sessions.push(sessionInfo);
+            localStorage.setItem('qrSessions', JSON.stringify(sessions));
+        }
+
+        function generateMultiple() {
+            const baseUrl = document.getElementById('baseUrl').value;
+            const sessionType = document.getElementById('sessionType').value;
+            const qrSize = 200; // Fixed size for grid display
+
+            if (!baseUrl) {
+                alert('Please enter a base URL');
+                return;
+            }
+
+            const count = parseInt(prompt('How many QR codes to generate?', '6'));
+            if (!count || count < 1) return;
+
+            const grid = document.getElementById('qrGrid');
+            grid.innerHTML = '';
+
+            for (let i = 1; i <= count; i++) {
+                const sessionId = generateSessionId();
+                let testUrl = baseUrl;
+                if (!testUrl.endsWith('/')) {
+                    testUrl += '/';
+                }
+                testUrl += 'index.html?session=' + encodeURIComponent(sessionId);
+                testUrl += '&type=' + encodeURIComponent(sessionType);
+                testUrl += '&num=' + i;
+
+                const qrItem = document.createElement('div');
+                qrItem.className = 'qr-item';
+                
+                const title = document.createElement('div');
+                title.className = 'qr-item-title';
+                title.textContent = `Test Station ${i}`;
+                qrItem.appendChild(title);
+
+                const qrDiv = document.createElement('div');
+                qrDiv.className = 'qr-item-code';
+                qrDiv.id = 'qr_' + i;
+                qrItem.appendChild(qrDiv);
+
+                const info = document.createElement('div');
+                info.style.fontSize = '10px';
+                info.style.marginTop = '5px';
+                info.textContent = `ID: ${sessionId.substr(-8)}`;
+                qrItem.appendChild(info);
+
+                grid.appendChild(qrItem);
+
+                // Generate QR code
+                new QRCode(qrDiv, {
+                    text: testUrl,
+                    width: qrSize,
+                    height: qrSize,
+                    colorDark: '#000000',
+                    colorLight: '#FFFFFF',
+                    correctLevel: QRCode.CorrectLevel.H,
+                    useSVG: false
+                });
+            }
+
+            document.getElementById('multipleQrDisplay').classList.remove('hidden');
+            document.getElementById('qrDisplay').classList.add('hidden');
+        }
+
+        function clearQR() {
+            document.getElementById('qrcode').innerHTML = '';
+            document.getElementById('qrDisplay').classList.add('hidden');
+            document.getElementById('multipleQrDisplay').classList.add('hidden');
+            currentQRCode = null;
+        }
+
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (!canvas) {
+                alert('Please generate a QR code first');
+                return;
+            }
+
+            const link = document.createElement('a');
+            link.download = 'competency-test-qr-' + Date.now() + '.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function copyUrl() {
+            const url = document.getElementById('generatedUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('URL copied to clipboard!');
+            });
+        }
+
+        // Set default expiry date to 30 days from now
+        window.addEventListener('DOMContentLoaded', () => {
+            const expiryInput = document.getElementById('expiryDate');
+            const futureDate = new Date();
+            futureDate.setDate(futureDate.getDate() + 30);
+            expiryInput.value = futureDate.toISOString().split('T')[0];
+        });
+
+        // Add keyboard shortcut for printing
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                if (!document.getElementById('qrDisplay').classList.contains('hidden') ||
+                    !document.getElementById('multipleQrDisplay').classList.contains('hidden')) {
+                    e.preventDefault();
+                    window.print();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
