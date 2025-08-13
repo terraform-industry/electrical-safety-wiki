@@ -63,8 +63,8 @@ expand subsections, and notice how the current page is highlighted for easy
 orientation.
 
 **Search Functionality** - Use the search bar in the header to quickly find
-specific topics, terms, or procedures. Press `Ctrl+K` (or `Cmd+K` on Mac) for
-keyboard-activated search that works from any page.
+specific topics, terms, or procedures. Press `/` or `s` to activate search
+from any page.
 
 **Table of Contents** - On the right side of each page, you'll find a table of
 contents showing all headings for quick navigation within long documents.
@@ -111,8 +111,8 @@ sections to demonstrate your knowledge and earn certification.
 **Bookmarking** - Save frequently referenced pages as browser bookmarks for
 quick access during work.
 
-**Quick Search** - Remember `Ctrl+K` (or `Cmd+K` on Mac) for instant search
-from any location in the wiki.
+**Quick Search** - Press `/` or `s` for instant search from any location in
+the wiki.
 
 **Offline Reference** - Print important procedures or emergency information for
 offline reference in work areas where devices may not be available.
