@@ -11,9 +11,9 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         
-        # Custom build for mdx-truly-sane-lists
+        # Custom Python package for mdx-truly-sane-lists
         mdx-truly-sane-lists = pkgs.python311Packages.buildPythonPackage rec {
-          pname = "mdx-truly-sane-lists";
+          pname = "mdx_truly_sane_lists";
           version = "1.3";
           format = "setuptools";
           
@@ -30,22 +30,23 @@
             description = "Extension for Python-Markdown that makes lists truly sane";
             homepage = "https://github.com/radude/mdx_truly_sane_lists";
             license = licenses.mit;
+            maintainers = [ ];
           };
         };
-
+        
         # Python environment with MkDocs and extensions
         pythonEnv = pkgs.python311.withPackages (ps: with ps; [
-          # Core MkDocs packages
+          # Core MkDocs packages (all >= minimum required versions)
           mkdocs
           mkdocs-material
           pygments
           pymdown-extensions
           
+          # Additional useful packages
+          markdown
+          
           # Custom package
           mdx-truly-sane-lists
-          
-          # Development and debugging tools
-          pip
         ]);
         
       in
@@ -93,8 +94,10 @@
             echo "  - MkDocs $(python -c "import mkdocs; print(mkdocs.__version__)")"
             echo "  - Material Theme $(python -c "import material; print(material.__version__)")"
             echo "  - PyMdown Extensions $(python -c "import pymdownx; print(pymdownx.__version__)")"
-            echo "  - mdx-truly-sane-lists ${mdx-truly-sane-lists.version}"
             echo "  - Node.js $(node --version)"
+            echo ""
+            echo "📦 Custom Extensions:"
+            echo "  - mdx-truly-sane-lists $(python -c "import mdx_truly_sane_lists; print('installed')" 2>/dev/null || echo 'not found')"
             echo ""
             
             # Setup git hooks directory if it exists
@@ -114,7 +117,6 @@
         # Provide packages for external use
         packages = {
           python-env = pythonEnv;
-          mdx-truly-sane-lists = mdx-truly-sane-lists;
         };
       });
 }

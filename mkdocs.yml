@@ -1,0 +1,69 @@
+site_name: Terraform Industries - Electrical Safety Wiki
+site_author: Johanness A. Nilsson - johanness.nilsson@terraformindustries.com
+site_description: Electrical safety is simple, yet critical. The purpose of electrical safety training is to keep you and all of your coworkers safe from burns, electric shock, and death.
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  favicon: media/favicon.svg
+  logo: media/favicon.svg
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.footer
+    - navigation.instant
+    - search.highlight
+    - search.share
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - mdx_truly_sane_lists:
+      nested_indent: 2
+      truly_sane: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - def_list
+  - attr_list
+
+copyright: |
+  &copy; 2025 <a href="https://github.com/terraformindustries" target="_blank" rel="noopener">Terraform Industries</a> - 
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+  Author: Johanness A. Nilsson
+
+nav:
+  - Home: index.md
+  - Fundamentals:
+      - Overview: fundamentals/overview.md
+      - Electrical Safety Topics: fundamentals/training-topics.md
+  - Safety Procedures:
+      - Hazard Identification: procedures/hazard-identification.md
+      - Common Hazard Sources: procedures/common-hazard-sources.md
+      - Safety Best Practices: procedures/safety-best-practices.md
+  - Emergency & Certification:
+      - Emergency Response: emergency/emergency-response.md
+      - Safety Certification: emergency/safety-certification.md
+  - Competency Test: competency-test/index.html
