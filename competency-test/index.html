@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Safety Competency Test</title>
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff9800;
+            --success-color: #4caf50;
+            --error-color: #f44336;
+            --text-color: #212121;
+            --bg-color: #ffffff;
+            --card-bg: #f5f5f5;
+            --border-color: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --text-color: #ffffff;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+
+        .btn-success {
+            background: var(--success-color);
+        }
+
+        .timer {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .timer.warning {
+            color: var(--error-color);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .options {
+            list-style: none;
+        }
+
+        .options li {
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .options label:hover {
+            background: var(--card-bg);
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .results {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .results h2 {
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .score.pass {
+            color: var(--success-color);
+        }
+
+        .score.fail {
+            color: var(--error-color);
+        }
+
+        .certificate {
+            background: white;
+            color: black;
+            border: 3px solid var(--primary-color);
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .certificate h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .certificate .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .certificate .date {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .review-answers {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--card-bg);
+            border-radius: 5px;
+        }
+
+        .review-question.correct {
+            border-left: 5px solid var(--success-color);
+        }
+
+        .review-question.incorrect {
+            border-left: 5px solid var(--error-color);
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background: var(--bg-color);
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .theme-toggle, .timer, .btn {
+                display: none !important;
+            }
+            .certificate {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    
+    <div class="timer hidden" id="timer">
+        Time: <span id="timeDisplay">45:00</span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Electrical Safety Competency Test</h1>
+            <p>Terraform Industries Electrical Safety Wiki Certification</p>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="card">
+            <h2>Welcome to the Competency Test</h2>
+            <p>This test consists of 25 randomly selected questions about electrical safety.</p>
+            <ul style="margin: 20px 0; padding-left: 30px;">
+                <li>Time limit: 45 minutes</li>
+                <li>Passing score: 80% (20 out of 25 questions)</li>
+                <li>You cannot go back to previous questions</li>
+                <li>A certificate will be generated upon passing</li>
+            </ul>
+            
+            <div class="form-group">
+                <label for="userName">Enter your full name:</label>
+                <input type="text" id="userName" placeholder="John Doe" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="userEmail">Enter your email:</label>
+                <input type="email" id="userEmail" placeholder="john.doe@example.com">
+            </div>
+            
+            <button class="btn" onclick="startTest()">Start Test</button>
+        </div>
+
+        <!-- Test Screen -->
+        <div id="testScreen" class="hidden">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            
+            <div class="card">
+                <div class="question" id="questionContainer">
+                    <!-- Questions will be inserted here -->
+                </div>
+                
+                <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+                <button class="btn btn-secondary hidden" id="submitBtn" onclick="submitTest()">Submit Test</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="hidden">
+            <div class="card results">
+                <h2 id="resultTitle">Test Complete!</h2>
+                <div class="score" id="scoreDisplay"></div>
+                <p id="resultMessage"></p>
+                
+                <div id="certificate" class="certificate hidden">
+                    <h2>Certificate of Completion</h2>
+                    <p>This certifies that</p>
+                    <p class="name" id="certName"></p>
+                    <p>has successfully completed the</p>
+                    <p><strong>Electrical Safety Wiki Competency Test</strong></p>
+                    <p>with a score of <span id="certScore"></span>%</p>
+                    <p class="date" id="certDate"></p>
+                    <p><small>Terraform Industries Electrical Safety Wiki</small></p>
+                </div>
+                
+                <button class="btn" onclick="downloadResults()">Download Results</button>
+                <button class="btn btn-secondary" onclick="window.print()">Print Certificate</button>
+                <button class="btn" onclick="location.reload()">Retake Test</button>
+            </div>
+            
+            <div class="card review-answers hidden" id="reviewSection">
+                <h3>Review Your Answers</h3>
+                <div id="reviewContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        let currentQuestion = 0;
+        let selectedQuestions = [];
+        let userAnswers = [];
+        let startTime;
+        let timerInterval;
+        let userName = '';
+        let userEmail = '';
+
+        // Theme management
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Check for session from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session');
+        if (sessionId) {
+            // Could load session data from localStorage or server
+            console.log('Session ID:', sessionId);
+        }
+
+        function startTest() {
+            userName = document.getElementById('userName').value.trim();
+            userEmail = document.getElementById('userEmail').value.trim();
+            
+            if (!userName) {
+                alert('Please enter your name');
+                return;
+            }
+            
+            // Select 25 random questions
+            selectedQuestions = [...questions]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 25);
+            
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('testScreen').classList.remove('hidden');
+            document.getElementById('timer').classList.remove('hidden');
+            
+            startTime = Date.now();
+            startTimer();
+            displayQuestion();
+        }
+
+        function startTimer() {
+            let timeLeft = 45 * 60; // 45 minutes in seconds
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                
+                document.getElementById('timeDisplay').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 5 * 60) {
+                    document.getElementById('timer').classList.add('warning');
+                }
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                }
+            }, 1000);
+        }
+
+        function displayQuestion() {
+            const question = selectedQuestions[currentQuestion];
+            const container = document.getElementById('questionContainer');
+            
+            container.innerHTML = `
+                <h3>Question ${currentQuestion + 1} of 25</h3>
+                <p>${question.question}</p>
+                <ul class="options">
+                    ${question.options.map((option, index) => `
+                        <li>
+                            <label>
+                                <input type="radio" name="answer" value="${index}" 
+                                       onchange="selectAnswer(${index})">
+                                ${option}
+                            </label>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+            
+            document.getElementById('nextBtn').disabled = true;
+            updateProgress();
+        }
+
+        function selectAnswer(index) {
+            userAnswers[currentQuestion] = index;
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            
+            if (currentQuestion < selectedQuestions.length) {
+                displayQuestion();
+            } else {
+                document.getElementById('nextBtn').classList.add('hidden');
+                document.getElementById('submitBtn').classList.remove('hidden');
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / selectedQuestions.length) * 100;
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = Math.round(progress) + '%';
+        }
+
+        function submitTest() {
+            clearInterval(timerInterval);
+            
+            const endTime = Date.now();
+            const timeTaken = Math.round((endTime - startTime) / 1000 / 60);
+            
+            // Calculate score
+            let correct = 0;
+            selectedQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.correctAnswer) {
+                    correct++;
+                }
+            });
+            
+            const score = Math.round((correct / selectedQuestions.length) * 100);
+            const passed = score >= 80;
+            
+            // Show results
+            document.getElementById('testScreen').classList.add('hidden');
+            document.getElementById('resultsScreen').classList.remove('hidden');
+            document.getElementById('timer').classList.add('hidden');
+            
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            scoreDisplay.textContent = score + '%';
+            scoreDisplay.className = passed ? 'score pass' : 'score fail';
+            
+            document.getElementById('resultTitle').textContent = 
+                passed ? 'Congratulations!' : 'Test Complete';
+            
+            document.getElementById('resultMessage').textContent = 
+                passed 
+                    ? `You passed with ${correct} out of 25 questions correct! Time taken: ${timeTaken} minutes.`
+                    : `You scored ${correct} out of 25. A score of 80% (20 correct) is required to pass. Time taken: ${timeTaken} minutes.`;
+            
+            if (passed) {
+                // Generate certificate
+                document.getElementById('certificate').classList.remove('hidden');
+                document.getElementById('certName').textContent = userName;
+                document.getElementById('certScore').textContent = score;
+                document.getElementById('certDate').textContent = 
+                    new Date().toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+            }
+            
+            // Show review
+            showReview(correct);
+        }
+
+        function showReview(correctCount) {
+            const reviewContainer = document.getElementById('reviewContainer');
+            let reviewHTML = '';
+            
+            selectedQuestions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correctAnswer;
+                
+                reviewHTML += `
+                    <div class="review-question ${isCorrect ? 'correct' : 'incorrect'}">
+                        <h4>Question ${index + 1}: ${isCorrect ? '✓' : '✗'}</h4>
+                        <p>${question.question}</p>
+                        <p><strong>Your answer:</strong> ${userAnswer !== undefined ? question.options[userAnswer] : 'Not answered'}</p>
+                        ${!isCorrect ? `<p><strong>Correct answer:</strong> ${question.options[question.correctAnswer]}</p>` : ''}
+                        <div class="explanation">${question.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            reviewContainer.innerHTML = reviewHTML;
+            document.getElementById('reviewSection').classList.remove('hidden');
+        }
+
+        function downloadResults() {
+            const results = {
+                name: userName,
+                email: userEmail,
+                date: new Date().toISOString(),
+                score: document.getElementById('scoreDisplay').textContent,
+                passed: document.getElementById('scoreDisplay').className.includes('pass'),
+                questions: selectedQuestions.map((q, i) => ({
+                    question: q.question,
+                    userAnswer: userAnswers[i] !== undefined ? q.options[userAnswers[i]] : 'Not answered',
+                    correctAnswer: q.options[q.correctAnswer],
+                    correct: userAnswers[i] === q.correctAnswer
+                }))
+            };
+            
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(results, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", `test_results_${userName.replace(/\s+/g, '_')}_${Date.now()}.json`);
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+    </script>
+</body>
+</html>
