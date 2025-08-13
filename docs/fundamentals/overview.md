@@ -32,4 +32,3 @@ This training covers three fundamental principles:
 ![Electrical safety overview diagram 1](../media/electrical-safety-is-simple-yet-a-critical-0.png)
 ![Electrical safety overview diagram 2](../media/electrical-safety-is-simple-yet-a-critical-1.png)
 ![Electrical safety overview diagram 3](../media/electrical-safety-is-simple-yet-a-critical-2.png)
-

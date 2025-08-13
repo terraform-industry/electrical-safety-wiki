@@ -119,4 +119,3 @@ into smaller, safer segments.
 - Existing system components by modifying assembly order
 
 ![Service disconnect locations and voltage segmentation](../media/best-practices-know-your-service-disconnects-0.png)
-

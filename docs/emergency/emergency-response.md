@@ -24,10 +24,12 @@ date: 2025-08-13
 
 ## Emergency Contacts
 
-| Entity                                 | Address                                               | Phone          |
-| -------------------------------------- | ----------------------------------------------------- | -------------- |
+<!-- markdownlint-disable -->
+
+| Entity                                 | Address                                              | Phone          |
+| -------------------------------------- | ---------------------------------------------------- | -------------- |
 | Fire Department                        | 311 E Orange Grove Ave, Burbank, CA 91502            | 911            |
 | Providence Saint Joseph Medical Center | North Tower, 501 S Buena Vista St, Burbank, CA 91505 | (818) 847-4040 |
 | Burbank Urgent Care                    | 3413 W Pacific Ave #102, Burbank, CA 91505           | (818) 452-1279 |
 
-<!-- Note: Emergency response flowchart (hazard-response-0.svm) is in StarView MetaFile format and cannot be displayed in web browsers. The emergency contact information is shown in the table above. -->
+<!-- markdownlint-enable -->
