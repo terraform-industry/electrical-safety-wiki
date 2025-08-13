@@ -1,6 +1,10 @@
 # Electrical Safety Wiki
 
-[![Deploy MkDocs](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/deploy-docs.yml) [![Markdown Lint](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/markdown-lint.yml) [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-success)](https://terraform-industry.github.io/electrical-safety-wiki/) [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+<!-- markdownlint-disable MD013 -->
+
+[![Deploy MkDocs](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/deploy-docs.yml) [![Markdown Lint](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/terraform-industry/electrical-safety-wiki/actions/workflows/markdown-lint.yml) [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-success)](https://terraform-industry.github.io/electrical-safety-wiki/) [![License: Dual](https://img.shields.io/badge/License-CC%20BY--SA%204.0%20%2F%20MIT-blue.svg)](#license-and-author)
+
+<!-- markdownlint-enable MD013 -->
 
 A comprehensive electrical safety training and competency testing repository
 for Terraform Industries. This wiki provides essential safety training
@@ -9,10 +13,14 @@ and death.
 
 ## Live Site
 
+<!-- markdownlint-disable MD013 -->
+
 **🔗 [Visit the Electrical Safety Wiki](https://terraform-industry.github.io/electrical-safety-wiki/)**
 
 Take the competency test at:
 [/competency-test/](https://terraform-industry.github.io/electrical-safety-wiki/competency-test/)
+
+<!-- markdownlint-enable MD013 -->
 
 ## Features
 
@@ -31,8 +39,11 @@ Take the competency test at:
 
 ### Prerequisites
 
+ <!-- markdownlint-disable MD013 -->
+
 - <img src="docs/media/nix_logo.png" alt="Nix" height="16" style="vertical-align: middle;"> [NixOS, or Nix Package Manager](https://nixos.org/download.html) for reproducible
-  development environment
+development environment
+<!-- markdownlint-enable MD013 -->
 
 ### Quick Start
 
@@ -105,20 +116,40 @@ make install    # Install Python dependencies manually
 
 ### Markdown Standards
 
-This project enforces strict markdown formatting via markdownlint-cli2.
+<!-- markdownlint-disable MD013 -->
+
+This project enforces strict markdown formatting via [`markdownlint-cli2`](https://github.com/DavidAnson/markdownlint-cli2).
 Common requirements:
 
+<!-- markdownlint-enable MD013 -->
+
 - Line length limit of 80 characters
-- Consistent heading styles
+- Consistent heading styles, hierarchy & spacing
 - Proper list formatting
 - No trailing whitespace
 
 ## License and Author
 
-This work is licensed under the
+<!-- markdownlint-disable MD013 -->
+
+This project uses a **dual licensing** approach to accommodate different types
+of content:
+
+### Content License (CC BY-SA 4.0)
+
+All **educational content** including text, graphics, audio, video, and
+documentation is licensed under the
 [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
-**Author**: Johanness A. Nilsson  
+### Code License (MIT)
+
+All **software and machine code** including HTML, CSS, JavaScript, Python,
+configuration files, and build scripts are licensed under the
+[MIT License](https://opensource.org/licenses/MIT).
+
+<!-- markdownlint-enable MD013 -->
+
+**Authors**: Johanness A. Nilsson @JoNilsson / Xavier D.
 **Org**: [Terraform Industries](https://github.com/terraformindustries)  
 **Contact**: <johanness.nilsson@terraformindustries.com>
 
