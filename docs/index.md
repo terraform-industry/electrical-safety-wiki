@@ -120,11 +120,6 @@ offline reference in work areas where devices may not be available.
 **Progressive Learning** - Take advantage of the wiki's organization to learn
 incrementally - you don't need to complete everything in one session.
 
-## Author Attribution
-
-This wiki was developed by Johanness A. Nilsson
-<johanness.nilsson@terraformindustries.com> for Terraform Industries
-
 ---
 
 **Remember:** Electrical safety is everyone's responsibility. When in doubt,

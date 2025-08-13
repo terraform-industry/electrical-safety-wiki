@@ -29,7 +29,15 @@ load cell testing in November 2024.
 - Molten metal expulsion that can cause lung damage, burns, death, and
   dismemberment
 
-**Incident Energy Calculations:**
+### Arc Flash Demonstration Videos
+
+**⚠ WARNING:** The following videos demonstrate the frightening and lethal
+destructive power of arcing in high-energy electrical systems. These are
+controlled laboratory demonstrations showing real arc flash events at
+different energy levels under carefully monitored conditions.
+
+**The following videos demonstrate arc flash events at two different incident
+energy levels:**
 
 - Arc Energy: 5.8 cal/cm²
   <!-- markdownlint-disable -->
@@ -46,6 +54,39 @@ load cell testing in November 2024.
     Your browser does not support the video tag.
   </video>
   <!-- markdownlint-enable -->
+
+**The following high-speed footage was captured at 1000 frames per second**
+The video reveals the immense destructive power of arc flash events in slow
+motion. This lab demonstration illustrates catastrophic failures that occur
+faster than any human can react. When an arc flash strikes—a worker has no
+chance of getting out of the way!
+
+<!-- markdownlint-disable -->
+<video controls width="100%" style="max-width: 800px;">
+  <source src="../../media/arc-flash-real-world-demonstration.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<!-- markdownlint-enable -->
+
+Arc flash events can reach temperatures of **20,000°C** —that is nearly
+four times hotter than the surface of the Sun! These extreme temperatures
+cause disabling second and third degree burns within milliseconds of exposure.
+The event creates an arc blast pressure wave reaching thousands of pounds per
+square inch, powerful enough to knock workers off ladders, rupture eardrums,
+or collapse lungs. The blast blows equipment apart and propels molten metal
+shrapnel with enough force to completely penetrate through a worker's body.
+
+When viewing these demonstrations, observe the explosive force, blinding
+light, molten metal spray, and instantaneous destruction of equipment. An
+unprotected worker could be severely injured or killed by any of these
+effects. This is why proper PPE and preventative safety procedures are
+absolutely **NON NEGOTIABLE**! Following strict safety protocols is critical
+when we work with high energy electrical systems.
+
+**REMEMBER:**  
+Any attempts to disable or circumvent any electrical safety devices or
+_LOTO_ equipment will be grounds for your immediate dis-honorable termination
+and dismissal.
 
 The critical factor to consider is the incident energy—this is the energy from
 the blast that directly impacts you. Arc energy originates from a single point,
@@ -70,22 +111,28 @@ for our systems. More details are provided in the hazard mitigation section.
 **Cause:** When live voltages get too close, they can break down the air
 between them, creating an arc. Proper clearances must be maintained.
 
-**Effects:** Sustained arcs can reach temperatures up to 3000°C, leading to:
+**Effects:** Sustained electrical arcs—such as those from high-current
+industrial faults or welding—can easily reach 3000 °C, which is already hot
+enough to melt steel and vaporize many metals. However, depending on the
+current density, arc length, and surrounding environment, plasma core
+temperatures can exceed 6000 °C and in extreme cases approach 20 000 °C,
+leading to:
 
 - Vaporization of metals and plastics
-- Risk of system fires
+- High risk of system fires
 - Severe burns to personnel
+- DEATH
 
 <!-- markdownlint-disable -->
 <figure style="text-align: center;">
   <img src="../../media/hazard-identification-electrical-arcing-1.png" alt="Electrical arcing damage showing carbonization and burn marks on equipment" style="width: 50%; display: inline-block;">
-  <figcaption><em>Electrical arcing damage - Note the carbonization and burn patterns from sustained arcing between conductors</em></figcaption>
+  <figcaption><em>What NOT to do in an electrical arc fire - Note: Always use a CLASS C fire extinguisher. NEVER attempt to manually shut off a breaker that has sustaining arcing between conductors! Go to the panel source!</em></figcaption>
 </figure>
 
-**Standards:** Clearance requirements are dictated by [UL 62368-1](<https://en.wikipedia.org/wiki/UL_(safety_organization)#Standards>). Working
-voltage is multiplied by 2 to account for surge conditions. This establishes
-the minimum allowable distance for line-to-line and line-to-ground spacing in
-ungrounded systems.
+**Standards:** Clearance requirements are dictated by [UL 62368-1](<https://en.wikipedia.org/wiki/UL_(safety_organization)#Standards>).  
+Working voltage is multiplied by 2 to account for surge conditions.
+This establishes the minimum allowable distance for line-to-line and
+line-to-ground spacing in ungrounded systems.
 
 <figure style="text-align: center;">
   <img src="../../media/hazard-identification-electrical-arcing-3.png" alt="UL 62368-1 voltage clearance standards chart showing required spacing distances" style="width: 100%; display: inline-block;">
@@ -94,7 +141,7 @@ ungrounded systems.
 
 <figure style="text-align: center;">
   <img src="../../media/hazard-identification-electrical-arcing-0.png" alt="Severe electrical arc burn injury" style="width: 50%; display: inline-block;">
-  <figcaption><em>WARNING: Electrical arc burn injury - This illustrates the severe burns that can result from electrical arcing incidents</em></figcaption>
+  <figcaption><em>⚠ WARNING: Electrical arc burn injury - This illustrates the severe burns that can result from electrical arcing incidents</em></figcaption>
 </figure>
 <!-- markdownlint-enable -->
 

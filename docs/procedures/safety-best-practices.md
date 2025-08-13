@@ -75,10 +75,14 @@ withstand the intense heat they generate.
    - Secure the connection
    - Turn the breaker back on
 
-**Warning:** The example connector shown vaporized due to an arc while being
+**⚠ Warning:** The example connector shown vaporized due to an arc while being
 plugged in under load.
 
 **Reference:** [Reddit example of 480V receptacle explosion](https://www.reddit.com/r/Welding/comments/11xv2cr/our_480v_receptacle_exploded_while_i_was_plugging/#lightbox)
+
+**⚠ WARNING:**  
+The legs of this Male NEMA plug have VAPORIZED due to arc flash!  
+The Redditor is lucky to live to tell about it.
 
 ![Connector damage from hot plugging under load](../media/best-practices-never-connect-or-disconnect-a-connector-under-load-0.png)
 
