@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Burbank Emergency Contacts - Fire Department
+ORG:Fire Department
+ADR;TYPE=WORK:;;311 E Orange Grove Ave;Burbank;CA;91502;USA
+TEL;TYPE=WORK,VOICE:911
+FN:Burbank Emergency Contacts - Providence Saint Joseph Medical Center
+ORG:Providence Saint Joseph Medical Center
+ADR;TYPE=WORK:;;North Tower, 501 S Buena Vista St;Burbank;CA;91505;USA
+TEL;TYPE=WORK,VOICE:(818) 847-4040
+FN:Burbank Emergency Contacts - Burbank Urgent Care
+ORG:Burbank Urgent Care
+ADR;TYPE=WORK:;;3413 W Pacific Ave #102;Burbank;CA;91505;USA
+TEL;TYPE=WORK,VOICE:(818) 452-1279
+END:VCARD
