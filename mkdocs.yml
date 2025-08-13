@@ -3,6 +3,9 @@ site_author: Johanness A. Nilsson - johanness.nilsson@terraformindustries.com
 site_description: Electrical safety is simple, yet critical. The purpose of electrical safety training is to keep you and all of your coworkers safe from burns, electric shock, and death.
 docs_dir: docs
 site_dir: site
+repo_url: https://github.com/terraform-industry/electrical-safety-wiki
+repo_name: terraform-industry/electrical-safety-wiki
+edit_uri: edit/master/docs/
 
 theme:
   name: material
@@ -17,6 +20,7 @@ theme:
     - search.highlight
     - search.share
     - toc.follow
+    - content.action.edit
   palette:
     - scheme: default
       primary: indigo
