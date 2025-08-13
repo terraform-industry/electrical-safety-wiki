@@ -1,4 +1,4 @@
-# Electrical Safety Wiki
+# Terraform Industries - Electrical Safety Wiki
 
 <!-- markdownlint-disable MD013 -->
 
@@ -30,7 +30,8 @@ Take the competency test at:
   covering fundamentals, procedures, and emergency response
 - **Interactive Competency Test** - Web-based certification system with
   immediate feedback and results
-- **QR Code Generator** - Easy access tool for sharing test links
+- **QR Code Generator** - An easy access tool for off-line sharing of the
+  competency test link, just print and post-up in a public area
 - **Rich Media Content** - Educational videos and diagrams for hazard
   identification and safety demonstrations
 - **Mobile-Friendly** - Accessible on all devices for field reference
@@ -41,7 +42,7 @@ Take the competency test at:
 
  <!-- markdownlint-disable MD013 -->
 
-- <img src="docs/media/nix_logo.png" alt="Nix" height="16" style="vertical-align: middle;"> [NixOS, or Nix Package Manager](https://nixos.org/download.html) for reproducible
+- <img src="docs/media/nix_logo.png" alt="Nix Foundation Logo" height="24" style="vertical-align: middle;"> [NixOS, or Nix Package Manager](https://nixos.org/download.html) for a system agnostic reproducible
 development environment
 <!-- markdownlint-enable MD013 -->
 
@@ -100,7 +101,7 @@ make install    # Install Python dependencies manually
 ### Content Guidelines
 
 - **Safety First**: All electrical safety content must be technically
-  accurate and follow industry standards
+  accurate and follow know industry standards & best practices
 - **Clear Documentation**: Use simple, clear language accessible to all
   skill levels
 - **Visual Learning**: Include diagrams and images to illustrate concepts
@@ -108,7 +109,7 @@ make install    # Install Python dependencies manually
 ### Development Workflow
 
 1. **Quality Assurance**: Run `make lint` before committing to ensure
-   markdown formatting standards
+   markdown formatting standards are met
 2. **Testing**: Verify changes work correctly with `make serve` for local
    testing
 3. **Git Hooks**: Pre-commit hooks automatically check formatting and
@@ -147,11 +148,11 @@ All **software and machine code** including HTML, CSS, JavaScript, Python,
 configuration files, and build scripts are licensed under the
 [MIT License](https://opensource.org/licenses/MIT).
 
-<!-- markdownlint-enable MD013 -->
-
-**Authors**: Johanness A. Nilsson @JoNilsson / Xavier D.
+**Authors**: Johanness A. Nilsson [@JoNilsson](https://github.com/JoNilsson) / Xavier D.  
 **Org**: [Terraform Industries](https://github.com/terraformindustries)  
 **Contact**: <johanness.nilsson@terraformindustries.com>
+
+<!-- markdownlint-enable MD013 -->
 
 ---
 
