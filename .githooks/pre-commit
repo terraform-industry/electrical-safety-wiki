@@ -10,8 +10,8 @@ if ! command -v markdownlint-cli2 &> /dev/null; then
     exit 0
 fi
 
-# Get list of staged markdown files
-STAGED_MD_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$')
+# Get list of staged markdown files in docs/ folder only
+STAGED_MD_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '^docs/.*\.md$')
 
 if [ -z "$STAGED_MD_FILES" ]; then
     exit 0

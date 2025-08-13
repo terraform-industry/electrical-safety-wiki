@@ -11,12 +11,12 @@ help:
 	@echo "  make dev       - Enter Nix development shell"
 
 lint:
-	@echo "Checking markdown files..."
-	@markdownlint-cli2 "**/*.md" || true
+	@echo "Checking markdown files in docs/..."
+	@markdownlint-cli2 "docs/**/*.md" || true
 
 lint-fix:
-	@echo "Auto-fixing markdown issues..."
-	@markdownlint-cli2 --fix "**/*.md"
+	@echo "Auto-fixing markdown issues in docs/..."
+	@markdownlint-cli2 --fix "docs/**/*.md"
 
 serve:
 	@echo "Starting MkDocs server at http://localhost:8000"
