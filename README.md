@@ -147,8 +147,7 @@ configuration files, and build scripts are licensed under the
 [MIT License](https://opensource.org/licenses/MIT).
 
 **Authors**: Johanness A. Nilsson [@JoNilsson](https://github.com/JoNilsson) / Xavier D.  
-**Org**: [Terraform Industries](https://github.com/terraformindustries)  
-**Contact**: <johanness.nilsson@terraformindustries.com>
+**Org**: [Terraform Industries](https://terraformindustries.com)
 
 <!-- markdownlint-enable MD013 -->
 
