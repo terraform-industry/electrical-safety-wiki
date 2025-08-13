@@ -346,35 +346,6 @@
 
         <div class="form-section">
             <h2>Configuration</h2>
-            
-            <div class="form-group">
-                <label for="baseUrl">Base URL:</label>
-                <input type="url" id="baseUrl" placeholder="https://your-domain.com/competency-test/" 
-                       value="http://localhost:8000/competency-test/">
-                <div class="help-text">Enter the base URL where the competency test is hosted</div>
-            </div>
-
-            <div class="form-group">
-                <label for="sessionType">Session Type:</label>
-                <select id="sessionType">
-                    <option value="individual">Individual Session</option>
-                    <option value="group">Group Session</option>
-                    <option value="training">Training Session</option>
-                    <option value="certification">Certification Session</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="sessionId">Session ID (optional):</label>
-                <input type="text" id="sessionId" placeholder="Auto-generated if empty">
-                <div class="help-text">Leave empty to auto-generate a unique session ID</div>
-            </div>
-
-            <div class="form-group">
-                <label for="expiryDate">Expiry Date (optional):</label>
-                <input type="date" id="expiryDate">
-                <div class="help-text">Set an expiration date for this QR code link</div>
-            </div>
 
             <div class="form-group">
                 <label for="qrSize">QR Code Size:</label>
@@ -404,11 +375,9 @@
             </div>
 
             <div class="session-info">
-                <h3>Session Information</h3>
-                <p><strong>Session ID:</strong> <span id="displaySessionId"></span></p>
-                <p><strong>Session Type:</strong> <span id="displaySessionType"></span></p>
+                <h3>QR Code Information</h3>
                 <p><strong>Generated:</strong> <span id="displayGenerated"></span></p>
-                <p id="expiryInfo" class="hidden"><strong>Expires:</strong> <span id="displayExpiry"></span></p>
+                <p><strong>Purpose:</strong> Direct access to Electrical Safety Competency Test</p>
             </div>
 
             <div style="margin-top: 20px; text-align: center;">
@@ -441,10 +410,6 @@
     <script>
         let currentQRCode = null;
 
-        function generateSessionId() {
-            return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        }
-
         function generateQR() {
             // Clear previous QR code
             if (currentQRCode) {
@@ -452,34 +417,12 @@
                 currentQRCode = null;
             }
 
-            // Get form values
-            const baseUrl = document.getElementById('baseUrl').value;
-            const sessionType = document.getElementById('sessionType').value;
-            let sessionId = document.getElementById('sessionId').value;
-            const expiryDate = document.getElementById('expiryDate').value;
+            // Fixed URL for the competency test
+            const baseUrl = 'https://terraform-industry.github.io/electrical-safety-wiki/competency-test/';
             const qrSize = parseInt(document.getElementById('qrSize').value);
 
-            if (!baseUrl) {
-                alert('Please enter a base URL');
-                return;
-            }
-
-            // Generate session ID if not provided
-            if (!sessionId) {
-                sessionId = generateSessionId();
-            }
-
-            // Build URL with parameters
-            let testUrl = baseUrl;
-            if (!testUrl.endsWith('/')) {
-                testUrl += '/';
-            }
-            testUrl += 'index.html?session=' + encodeURIComponent(sessionId);
-            testUrl += '&type=' + encodeURIComponent(sessionType);
-            
-            if (expiryDate) {
-                testUrl += '&expires=' + encodeURIComponent(expiryDate);
-            }
+            // Simple direct URL without parameters
+            const testUrl = baseUrl;
 
             // Generate QR code with optimization for printing
             currentQRCode = new QRCode(document.getElementById('qrcode'), {
@@ -494,44 +437,17 @@
 
             // Update display information
             document.getElementById('generatedUrl').textContent = testUrl;
-            document.getElementById('displaySessionId').textContent = sessionId;
-            document.getElementById('displaySessionType').textContent = sessionType;
             document.getElementById('displayGenerated').textContent = new Date().toLocaleString();
-
-            if (expiryDate) {
-                document.getElementById('displayExpiry').textContent = new Date(expiryDate).toLocaleDateString();
-                document.getElementById('expiryInfo').classList.remove('hidden');
-            } else {
-                document.getElementById('expiryInfo').classList.add('hidden');
-            }
 
             // Show QR display
             document.getElementById('qrDisplay').classList.remove('hidden');
             document.getElementById('multipleQrDisplay').classList.add('hidden');
-
-            // Store session info in localStorage for tracking
-            const sessionInfo = {
-                sessionId: sessionId,
-                sessionType: sessionType,
-                created: new Date().toISOString(),
-                expires: expiryDate || null,
-                url: testUrl
-            };
-            
-            let sessions = JSON.parse(localStorage.getItem('qrSessions') || '[]');
-            sessions.push(sessionInfo);
-            localStorage.setItem('qrSessions', JSON.stringify(sessions));
         }
 
         function generateMultiple() {
-            const baseUrl = document.getElementById('baseUrl').value;
-            const sessionType = document.getElementById('sessionType').value;
+            // Fixed URL for all QR codes
+            const baseUrl = 'https://terraform-industry.github.io/electrical-safety-wiki/competency-test/';
             const qrSize = 200; // Fixed size for grid display
-
-            if (!baseUrl) {
-                alert('Please enter a base URL');
-                return;
-            }
 
             const count = parseInt(prompt('How many QR codes to generate?', '6'));
             if (!count || count < 1) return;
@@ -540,14 +456,7 @@
             grid.innerHTML = '';
 
             for (let i = 1; i <= count; i++) {
-                const sessionId = generateSessionId();
-                let testUrl = baseUrl;
-                if (!testUrl.endsWith('/')) {
-                    testUrl += '/';
-                }
-                testUrl += 'index.html?session=' + encodeURIComponent(sessionId);
-                testUrl += '&type=' + encodeURIComponent(sessionType);
-                testUrl += '&num=' + i;
+                const testUrl = baseUrl;
 
                 const qrItem = document.createElement('div');
                 qrItem.className = 'qr-item';
@@ -561,12 +470,6 @@
                 qrDiv.className = 'qr-item-code';
                 qrDiv.id = 'qr_' + i;
                 qrItem.appendChild(qrDiv);
-
-                const info = document.createElement('div');
-                info.style.fontSize = '10px';
-                info.style.marginTop = '5px';
-                info.textContent = `ID: ${sessionId.substr(-8)}`;
-                qrItem.appendChild(info);
 
                 grid.appendChild(qrItem);
 
@@ -622,14 +525,6 @@
                 alert('URL copied to clipboard!');
             });
         }
-
-        // Set default expiry date to 30 days from now
-        window.addEventListener('DOMContentLoaded', () => {
-            const expiryInput = document.getElementById('expiryDate');
-            const futureDate = new Date();
-            futureDate.setDate(futureDate.getDate() + 30);
-            expiryInput.value = futureDate.toISOString().split('T')[0];
-        });
 
         // Add keyboard shortcut for printing
         document.addEventListener('keydown', (e) => {
