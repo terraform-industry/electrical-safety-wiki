@@ -87,8 +87,6 @@ make install    # Install Python dependencies manually
 │   ├── procedures/          # Safety procedures and protocols
 │   ├── emergency/           # Emergency response and certification
 │   └── media/               # Images, videos, and diagrams
-├── media/                   # Source media files
-├── site/                    # Generated static site (build output)
 ├── .github/workflows/       # CI/CD automation
 ├── mkdocs.yml              # Site configuration
 ├── Makefile                # Development commands
