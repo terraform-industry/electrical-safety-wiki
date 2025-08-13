@@ -4,78 +4,126 @@ author: Johanness A. Nilsson
 date: 2025-08-13
 ---
 
-# Terraform Industries Electrical Safety Wiki
+# ⚡ Terraform Industries Electrical Safety Wiki
 
-## Overview
+## Welcome
 
-Electrical safety is simple, yet critical. The purpose of electrical safety
-training is to keep you and all of your coworkers safe from burns, electric
-shock, and death.
+Welcome to the Electrical Safety Wiki for Terraform Industries! This
+comprehensive resource has been designed to provide essential electrical safety
+training and certification for all employees and contractors working in our
+facilities.
 
-### Core Principles
+### About This Wiki
 
-This training covers three fundamental principles:
+This wiki serves as your complete guide to electrical safety at Terraform
+Industries. Whether you're new to the company or need a refresher on safety
+protocols, you'll find everything you need to work safely around electrical
+hazards.
 
-- **Identifying risks** - Understanding electrical hazards in the workplace
-- **Mitigating hazards** - Implementing safety measures and best practices
-- **Incident response** - Knowing what to do in the event of an electrical
-  safety incident
+### Who This Is For
 
-### Key Safety Threshold
+- All Terraform Industries employees
+- Contractors and temporary workers
+- Anyone working in or around electrical systems at our facilities
+- Personnel requiring electrical safety certification
 
-- AC and DC voltages above 60V are considered hazardous
+### What You'll Find Here
 
-### Primary Electrical Hazards
+This wiki is organized into three main sections:
 
-- Electrical Fire
-- Arc Flash/Arc Blast
-- Electrical Shock
+**Fundamentals** - Core concepts, principles, and an overview of electrical
+safety training topics. Start here to understand the foundation of electrical
+safety.
 
-![Electrical safety overview diagram 1](media/electrical-safety-is-simple-yet-a-critical-0.png)
-![Electrical safety overview diagram 2](media/electrical-safety-is-simple-yet-a-critical-1.png)
-![Electrical safety overview diagram 3](media/electrical-safety-is-simple-yet-a-critical-2.png)
+**Procedures** - Detailed guidance on identifying hazards, understanding common
+hazard sources, and implementing safety best practices in your daily work.
 
-## Training Topics
+**Emergency** - Critical information on emergency response procedures and the
+path to obtaining your electrical safety certification.
 
-This training covers:
+### Competency Testing
 
-### Electrical Hazard Identification
+After completing the training materials, you'll have the opportunity to
+demonstrate your knowledge through our competency test. Successful completion
+is required for electrical safety certification at Terraform Industries.
 
-- General Hazards
-- AC Systems
-- Photovoltaic DC Systems
-- Battery DC Systems
+## Getting Started
 
-### Hazard Mitigation and Response
+### How to Navigate This Wiki
 
-- Best Practices for Working Around Electrical Hazards
-- Selecting the Right PPE
-- Emergency Response Procedures
+This interactive wiki web application is designed for intuitive navigation
+and easy access to information. Whether you're on desktop or mobile, you'll
+find the interface responsive and user-friendly.
 
-## Navigation Guide
+### Navigation Features
 
-This electrical safety training is organized into the following sections:
+**Left Sidebar Navigation** - The main navigation menu on the left side
+organizes all content into expandable sections. Click on section headers to
+expand subsections, and notice how the current page is highlighted for easy
+orientation.
 
-### Fundamentals
+**Search Functionality** - Use the search bar in the header to quickly find
+specific topics, terms, or procedures. Press `Ctrl+K` (or `Cmd+K` on Mac) for
+keyboard-activated search that works from any page.
 
-- [Overview](fundamentals/overview.md) - Core principles and safety thresholds
-- [Training Topics](fundamentals/training-topics.md) - What this training covers
+**Table of Contents** - On the right side of each page, you'll find a table of
+contents showing all headings for quick navigation within long documents.
 
-### Procedures
+**Theme Toggle** - Switch between light and dark modes using the toggle button
+in the header to match your preferred reading environment.
 
-- [Hazard Identification](procedures/hazard-identification.md) - Recognizing
-  electrical hazards
-- [Common Hazard Sources](procedures/common-hazard-sources.md) - Where hazards
-  occur
-- [Safety Best Practices](procedures/safety-best-practices.md) - How to work
-  safely
+**Breadcrumb Navigation** - At the bottom of each page, breadcrumbs show your
+current location and provide quick links to back to parent sections or to
+progress forward to the next section.
 
-### Emergency
+**Edit Links** - The pencil icon in the header links to the source document on
+GitHub for those with editing permissions. This way you don't need to be
+a computer hacker to make and update this content! What you see is what you
+get!
 
-- [Emergency Response](emergency/emergency-response.md) - What to do in an
-  emergency
-- [Safety Certification](emergency/safety-certification.md) - How to get
-  certified
+**Page Navigation** - At the bottom of each page, find previous/next links to
+move sequentially through related content.
+
+### Mobile Navigation
+
+**Hamburger Menu** - On mobile devices, the main navigation is accessed through
+the hamburger menu (three lines) in the top-left corner.
+
+**Touch-Friendly Design** - All interface elements are optimized for touch
+interaction with appropriate sizing and spacing for mobile use.
+
+### Learning Path Recommendations
+
+**Structured Approach** - For comprehensive understanding, follow this sequence:
+
+1. **Fundamentals** - Start with core concepts and principles
+2. **Procedures** - Learn practical hazard identification and safety practices
+3. **Emergency** - Study emergency response and certification requirements
+
+**Self-Paced Learning** - Content can be accessed in any order based on your
+immediate needs or time constraints.
+
+**Competency Testing** - Complete the competency test after working through all
+sections to demonstrate your knowledge and earn certification.
+
+### Tips for Best Experience
+
+**Bookmarking** - Save frequently referenced pages as browser bookmarks for
+quick access during work.
+
+**Quick Search** - Remember `Ctrl+K` (or `Cmd+K` on Mac) for instant search
+from any location in the wiki.
+
+**Offline Reference** - Print important procedures or emergency information for
+offline reference in work areas where devices may not be available.
+
+**Progressive Learning** - Take advantage of the wiki's organization to learn
+incrementally - you don't need to complete everything in one session.
+
+## Author Attribution
+
+This wiki was developed by Johanness A. Nilsson
+<johanness.nilsson@terraformindustries.com> for Terraform Industries
 
 ---
 
