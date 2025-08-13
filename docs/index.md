@@ -77,12 +77,6 @@ This electrical safety training is organized into the following sections:
 - [Safety Certification](emergency/safety-certification.md) - How to get
   certified
 
-## Author Attribution
-
-This training material was developed by Johanness A. Nilsson
-<johanness.nilsson@terraformindustries.com> for Terraform Industries
-electrical safety training program.
-
 ---
 
 **Remember:** Electrical safety is everyone's responsibility. When in doubt,
