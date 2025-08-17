@@ -63,10 +63,15 @@ nav:
   - Fundamentals:
       - Overview: fundamentals/overview.md
       - Electrical Safety Topics: fundamentals/training-topics.md
+      - Safety Standards & Thresholds: fundamentals/electrical-safety-standards.md
   - Safety Procedures:
       - Hazard Identification: procedures/hazard-identification.md
       - Common Hazard Sources: procedures/common-hazard-sources.md
+      - Spacing & Clearances: procedures/spacing-and-clearances.md
+      - LOTO Procedures: procedures/loto-procedures.md
       - Safety Best Practices: procedures/safety-best-practices.md
+      - Electrical Tools Safety: procedures/electrical-tools-safety.md
+      - Work Permits & Procedures: procedures/work-permits-and-procedures.md
   - Emergency & Certification:
       - Emergency Response: emergency/emergency-response.md
       - Safety Certification: emergency/safety-certification.md
