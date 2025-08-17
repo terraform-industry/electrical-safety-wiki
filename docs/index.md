@@ -33,13 +33,44 @@ This wiki is organized into three main sections:
 
 **Fundamentals** - Core concepts, principles, and an overview of electrical
 safety training topics. Start here to understand the foundation of electrical
-safety.
+safety, including electrical safety standards and regulatory requirements.
 
 **Procedures** - Detailed guidance on identifying hazards, understanding common
 hazard sources, and implementing safety best practices in your daily work.
+This includes comprehensive coverage of spacing and clearances, lock out tag
+out (LOTO) procedures, work permits, and electrical tool safety.
 
 **Emergency** - Critical information on emergency response procedures and the
 path to obtaining your electrical safety certification.
+
+### Key Training Modules
+
+Our comprehensive training program covers essential electrical safety topics:
+
+**Core Standards and Requirements:**
+
+- [Electrical Safety Standards](fundamentals/electrical-safety-standards.md) -
+  Safety thresholds, regulatory requirements, and industry standards
+- [Training Topics Overview](fundamentals/training-topics.md) - Complete guide
+  to all electrical safety training areas
+
+**Essential Procedures:**
+
+- [Spacing and Clearances](procedures/spacing-and-clearances.md) - NFPA 70E
+  approach boundaries and safe working distances
+- [Lock Out Tag Out (LOTO)](procedures/loto-procedures.md) - Critical energy
+  isolation and lockout procedures
+- [Work Permits and Procedures](procedures/work-permits-and-procedures.md) -
+  Special work procedures and permit requirements
+- [Electrical Tool Safety](procedures/electrical-tools-safety.md) - Safe use of
+  tools, GFCI protection, and ladder safety
+- [Safety Best Practices](procedures/safety-best-practices.md) - PPE selection
+  and general safety protocols
+
+**Emergency Preparedness:**
+
+- [Emergency Response](emergency/emergency-response.md) - Comprehensive
+  emergency procedures and incident response
 
 ### Competency Testing
 
