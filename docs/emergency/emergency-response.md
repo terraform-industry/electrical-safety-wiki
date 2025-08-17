@@ -70,3 +70,72 @@ appropriately during an emergency.
 group that can be imported into any smartphone's contact list. This ensures you
 have immediate access to fire department, medical facilities, and urgent care
 contacts when you need them most.
+
+## Electrical Shock Victim Response
+
+### DO NOT Become Another Victim
+
+**CRITICAL:** Never touch a person who may still be in contact with
+electricity. You will become part of the circuit.
+
+### Immediate Response for Electrical Shock Victims
+
+1. **Ensure Scene Safety**:
+   - Look for the source of electricity
+   - Turn off power at breaker or disconnect
+   - If you cannot turn off power, use non-conductive material (dry wood,
+     plastic, rubber) to separate victim from source
+   - Never use metal or wet objects
+
+2. **Call 911 Immediately**:
+   - Even if victim appears fine
+   - Internal injuries may not be visible
+   - Cardiac effects can be delayed
+
+3. **Check Victim's Condition** (only after power is off):
+   - Check for consciousness
+   - Check for breathing
+   - Check for pulse
+   - Look for entry and exit burn wounds
+
+4. **If Victim is Unconscious**:
+   - Begin CPR if trained
+   - Use AED if available
+   - Continue until emergency services arrive
+   - Do not move victim unless in immediate danger
+
+5. **If Victim is Conscious**:
+   - Keep them still and calm
+   - Cover burns with sterile gauze (do not use ointments)
+   - Monitor for shock symptoms
+   - Document everything for medical personnel
+
+### Special Considerations
+
+#### High Voltage Incidents
+
+- Stay at least 20 feet away from high voltage sources
+- Call utility company immediately
+- Do not approach until utility confirms power is off
+
+#### Arc Flash Victims
+
+- May have severe burns without electrical contact
+- Cool burns with water if safe to do so
+- Remove smoldering clothing unless stuck to skin
+- Watch for respiratory distress from inhaled hot gases
+
+### What NOT to Do
+
+- Never touch victim if still in contact with electricity
+- Don't use water near electrical sources
+- Don't apply ice or ointments to electrical burns
+- Don't give victim anything to eat or drink
+- Don't assume victim is okay if they say they feel fine
+
+### Post-Incident Requirements
+
+- All electrical shock victims must receive medical evaluation
+- Document incident for OSHA reporting
+- Preserve scene for investigation
+- Notify management immediately
